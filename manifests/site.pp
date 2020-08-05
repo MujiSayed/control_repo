@@ -2,6 +2,10 @@ node default {
 }
 node 'centos7-vm' {
   include role::master_server
+  file {'/root/README:
+    ensure  => file,
+    content => $fqdn,
+  }
 }
 
 node /^web/ {
